@@ -115,7 +115,7 @@ function App() {
           <div className="card p-4">
             {/* Use logo512.png for login, made smaller and square */}
             <img 
-              src="logo512.jpg" 
+                src={`${process.env.PUBLIC_URL}/logo512.jpg`} 
               alt="Smart Home Logo" 
               className="img-fluid mb-4 mx-auto d-block" 
               style={{ width: '150px', height: '150px', objectFit: 'cover' }} 
@@ -152,15 +152,7 @@ function App() {
   }
 
   return (
-    <div className={`container-fluid text-center ${darkMode ? 'bg-dark text-white' : ''}`} style={{ minHeight: '100vh', position: 'relative' }}>
-      {/* Logout Button */}
-      <button 
-        className="btn btn-danger position-absolute top-0 end-0 m-3"
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
-
+    <div className={`container-fluid text-center ${darkMode ? 'bg-dark text-white' : ''}`} style={{ minHeight: '100vh' }}>
       <h1 className="my-4">IOT BASED SMART HOME</h1>
 
       {/* CCTV Section */}
@@ -266,6 +258,22 @@ function App() {
         </div>
       </div>
 
+      {/* Logout Button at the bottom */}
+      <div className="row justify-content-center mb-4">
+        <div className="col-md-3 mb-3">
+          <div className="card">
+            <div className="card-body">
+              {/* <p className="card-title">Logout</p> */}
+              <button 
+                className="btn btn-lg w-100 btn-danger" 
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
